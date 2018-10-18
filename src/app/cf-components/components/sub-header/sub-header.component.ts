@@ -10,11 +10,13 @@ export class SubHeaderComponent implements OnInit {
   @Input() light: boolean = false;
 
 
-  @Output('innermenuitemsname') menuname = new EventEmitter<string>();//rki_add
-  saveTitle(val)
+  @Output('innerMenuItemsName') menuName = new EventEmitter<string>();//rki_add
+  
+  setSelectedMenuName(selectedName)
   {
-    this.menuname.emit(val);
+    this.menuName.emit(selectedName);
   }
+
   constructor() {}
 
   ngOnInit() {}

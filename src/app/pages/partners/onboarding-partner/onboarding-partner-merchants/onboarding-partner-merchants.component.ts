@@ -36,7 +36,6 @@ export class OnboardingPartnerMerchantsComponent implements OnInit {
       this.openDialog(this.dialog);
     });
 */
-
   }
   ngAfterContentInit()
   {
@@ -45,13 +44,6 @@ export class OnboardingPartnerMerchantsComponent implements OnInit {
     setTimeout(() => {
       this.openDialog(this.dialog);
   });
-  }
-
-  ngOnChanges()
-  {
-
-   // this.dialogName = this.parentSetName;
-
   }
 
   ngOnInit() {
@@ -64,7 +56,6 @@ export class OnboardingPartnerMerchantsComponent implements OnInit {
       (list) => this.companyList = list
     );
     this.dialogName = this.parentSetName;
-   // this.openDialog(this.dialog);
   }
 
 
@@ -75,7 +66,6 @@ export class OnboardingPartnerMerchantsComponent implements OnInit {
     const dialogRef = this.dialog.open(RadioListItemsComponent, {
       data: {
         dataArray: this.dataArray,
-     //   dialogName: this.dialogName
         dialogName: this.dialogName
 
       },

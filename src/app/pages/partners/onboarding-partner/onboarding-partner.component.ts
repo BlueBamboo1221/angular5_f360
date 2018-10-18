@@ -12,7 +12,7 @@ export class OnboardingPartnerComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   activateButton = true;
   activePage = false;
-  currentName = '';
+  currentName:string = ''; //rki_add
   partnerInnerMenu = [
     {
       path: 'details',
@@ -59,7 +59,7 @@ export class OnboardingPartnerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {}
 
-  saveName(val){
+  setSelectedName(val){     //rki_add
     this.currentName = val;
   }
   ngOnDestroy() {

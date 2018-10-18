@@ -8,7 +8,7 @@
       routerLinkActive
       #rla="routerLinkActive"
       [active]="rla.isActive"
-      (click) = "saveTitle(item.name)"><!--rki_add-->
+      (click) = "setSelectedMenuName(item.name)"><!--rki_add-->
       
       {{item.name}}
       <i *ngIf="item.icon"
