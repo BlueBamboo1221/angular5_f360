@@ -1,6 +1,5 @@
-//import { BrowserModule } from '@angular/platform-browser';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes, PreloadAllModules, NoPreloading } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -14,68 +13,70 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { HttpModule } from '@angular/http'; //service
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { SharedModule } from './shared.module';
-import { PartnersModule } from './pages/partners/partners.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {};
 import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatDialogModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatTabsModule,
-  MatSnackBarModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatTabsModule,
+    MatSnackBarModule
 } from '@angular/material';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
 import { SortablejsModule } from 'angular-sortablejs';
 
 const MAT_MODULES = [
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatDialogModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatTabsModule,
-  MatSnackBarModule
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatTabsModule,
+    MatSnackBarModule
 ];
 
 import {
-  CF_COMPONENTS,
-  CF_DIRECTIVES,
-  CfDatepickerModule
+    CF_COMPONENTS,
+    CF_DIRECTIVES,
+    CfDatepickerModule
 } from './cf-components/index';
 
-import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AlertsComponent } from './pages/alerts/alerts.component';
 import { AlertsService } from './pages/alerts/alerts.service';
 import { AlertReasonService } from './pages/alerts/alert-resolve/alertsReason.service';
 import { AlertDescriptorService } from './pages/alerts/alert-descriptor/alert-descriptor-service';
+import { ChargebacksComponent } from './pages/chargebacks/chargebacks.component';
+import { ClientsComponent } from './pages/clients/clients.component';
+import { UsersComponent } from './pages/users/users.component';
+import { ActivityComponent } from './pages/activity/activity.component';
+import { BillingComponent } from './pages/billing/billing.component';
 import { CoverLettersComponent } from './pages/cover-letters/cover-letters.component';
 import { TicketsComponent } from './pages/tickets/tickets.component';
 import { SettingsComponent } from './pages/settings/settings.component';
@@ -232,225 +233,381 @@ import { UserType } from './models/user';
 
 // Routes
 const newProcessorTabs: Routes = [
-  { path: 'details', component: NewProcessorDetailsComponent },
-  { path: 'dispute-info', component: NewProcessorDisputeInfoComponent },
-  { path: 'risk-rule', component: NewProcessorRiskRuleComponent }
+    { path: 'details', component: NewProcessorDetailsComponent },
+    { path: 'dispute-info', component: NewProcessorDisputeInfoComponent },
+    { path: 'risk-rule', component: NewProcessorRiskRuleComponent }
 ];
 const processorTabs: Routes = [
-  { path: 'details', component: ProcessorDetailsComponent },
-  { path: 'dispute-info', component: ProcessorDisputeInfoComponent },
-  { path: 'risk-rule', component: ProcessorRiskRuleComponent }
+    { path: 'details', component: ProcessorDetailsComponent },
+    { path: 'dispute-info', component: ProcessorDisputeInfoComponent },
+    { path: 'risk-rule', component: ProcessorRiskRuleComponent }
 ];
 
 const invoiceTabs: Routes = [
-  { path: 'summary', component: InvoiceSummaryComponent },
-  { path: 'payment-history', component: InvoicePaymentHistoryComponent },
-  { path: 'services', component: InvoiceServiceComponent },
-  { path: 'payment-methods', component: InvoicePaymentMethodsComponent }
+    { path: 'summary', component: InvoiceSummaryComponent },
+    { path: 'payment-history', component: InvoicePaymentHistoryComponent },
+    { path: 'services', component: InvoiceServiceComponent },
+    { path: 'payment-methods', component: InvoicePaymentMethodsComponent }
 ];
 
 const billingTabs: Routes = [
-  { path: 'summary', component: BillingSummaryComponent },
-  { path: 'payment-history', component: BillingHistoryComponent },
-  { path: 'services', component: BillingServicesComponent },
-  { path: 'payment-methods', component: BillingMethodsComponent }
+    { path: 'summary', component: BillingSummaryComponent },
+    { path: 'payment-history', component: BillingHistoryComponent },
+    { path: 'services', component: BillingServicesComponent },
+    { path: 'payment-methods', component: BillingMethodsComponent }
 ];
 
 const usersTabs: Routes = [
-  { path: 'gurus', component: GurusComponent },
-  { path: 'users-clients', component: UsersClientsComponent },
-  { path: 'users-partners', component: UsersPartnersComponent }
+    { path: 'gurus', component: GurusComponent },
+    { path: 'users-clients', component: UsersClientsComponent },
+    { path: 'users-partners', component: UsersPartnersComponent }
 ];
 
 const userTabs: Routes = [
-  { path: 'details', component: UserDetailsComponent, canDeactivate: [CanDeactivateGuard]  },
-  { path: 'notifications', component: UserNotificationsComponent },
-  { path: 'activity', component: UserActivityComponent }
+    { path: 'details', component: UserDetailsComponent, canDeactivate: [CanDeactivateGuard]  },
+    { path: 'notifications', component: UserNotificationsComponent },
+    { path: 'activity', component: UserActivityComponent }
 ];
 
 const newOnboardingMerchantTabs: Routes = [
-  { path: 'details', component: NewOnboardingMerchantDetailsComponent },
-  { path: 'products', component: NewOnboardingMerchantProductsComponent },
-  { path: 'mid-accounts', component: NewOnboardingMerchantMidAccountsComponent }
+    { path: 'details', component: NewOnboardingMerchantDetailsComponent },
+    { path: 'products', component: NewOnboardingMerchantProductsComponent },
+    { path: 'mid-accounts', component: NewOnboardingMerchantMidAccountsComponent }
 ];
 
 const innerOnboardingMerchantTabs: Routes = [
-  { path: 'details', component: OnboardingMerchantDetailsComponent },
-  { path: 'products', component: OnboardingMerchantProductsComponent },
-  { path: 'mid-accounts', component: OnboardingMerchantMidAccountsComponent }
+    { path: 'details', component: OnboardingMerchantDetailsComponent },
+    { path: 'products', component: OnboardingMerchantProductsComponent },
+    { path: 'mid-accounts', component: OnboardingMerchantMidAccountsComponent }
 ];
 
 const innerOnboarding: Routes = [
-  { path: 'details', component: OnboardingDetailsComponent },
-  { path: 'billing', component: OnboardingBillingComponent },
-  { path: 'crm', component: OnboardingCrmComponent },
-  { path: 'merchants', component: OnboardingMerchantsComponent },
-  { path: 'products', component: OnboardingProductsComponent },
-  { path: 'restrictions', component: OnboardingRestrictionsComponent },
-  { path: 'reports', component: CompanyReportsComponent },
-  { path: 'users', component: OnboardingUsersComponent },
-  { path: 'gurus', component: OnboardingGurusComponent }
+    { path: 'details', component: OnboardingDetailsComponent },
+    { path: 'billing', component: OnboardingBillingComponent },
+    { path: 'crm', component: OnboardingCrmComponent },
+    { path: 'merchants', component: OnboardingMerchantsComponent },
+    { path: 'products', component: OnboardingProductsComponent },
+    { path: 'restrictions', component: OnboardingRestrictionsComponent },
+    { path: 'reports', component: CompanyReportsComponent },
+    { path: 'users', component: OnboardingUsersComponent },
+    { path: 'gurus', component: OnboardingGurusComponent }
 ];
 
 const innerProfile: Routes = [
-  { path: 'details', component: ProfileDetailsComponent, canDeactivate: [CanDeactivateGuard] },
-  { path: 'activity', component: ProfileActivityComponent }
+    { path: 'details', component: ProfileDetailsComponent, canDeactivate: [CanDeactivateGuard] },
+    { path: 'activity', component: ProfileActivityComponent }
 ];
 
 const innerCompany: Routes = [
-  { path: 'details', component: CompanyDetailsComponent },
-  { path: 'billing', component: CompanyBillingComponent },
-  { path: 'crm', component: CompanyCrmComponent },
-  { path: 'merchants', component: CompanyMerchantsComponent },
-  { path: 'products', component: CompanyProductsComponent },
-  { path: 'restrictions', component: RestrictionsComponent },
-  { path: 'reports', component: CompanyReportsComponent },
-  { path: 'users', component: CompanyUsersComponent },
-  { path: 'gurus', component: CompanyGurusComponent },
-  { path: 'activity', component: CompanyActivityComponent }
+    { path: 'details', component: CompanyDetailsComponent },
+    { path: 'billing', component: CompanyBillingComponent },
+    { path: 'crm', component: CompanyCrmComponent },
+    { path: 'merchants', component: CompanyMerchantsComponent },
+    { path: 'products', component: CompanyProductsComponent },
+    { path: 'restrictions', component: RestrictionsComponent },
+    { path: 'reports', component: CompanyReportsComponent },
+    { path: 'users', component: CompanyUsersComponent },
+    { path: 'gurus', component: CompanyGurusComponent },
+    { path: 'activity', component: CompanyActivityComponent }
 ];
 
 const innerMerchant: Routes = [
-  { path: 'details', component: MerchantDetailsComponent },
-  { path: 'products', component: MerchantProductsComponent },
-  { path: 'mid-accounts', component: MerchantMidAccountsComponent },
-  { path: 'activity', component: MerchantActivityComponent }
+    { path: 'details', component: MerchantDetailsComponent },
+    { path: 'products', component: MerchantProductsComponent },
+    { path: 'mid-accounts', component: MerchantMidAccountsComponent },
+    { path: 'activity', component: MerchantActivityComponent }
 ];
 
 const innerSettings: Routes = [
-  { path: 'chargeback-parameters', component: SettingsCargebackParametersComponent },
-  { path: 'industries', component: SettingsIndustriesComponent },
-  { path: 'reason-codes', component: SettingsReasonCodesComponent },
-  { path: 'crm', component: SettingsCrmComponent },
-  { path: 'payment-processor', component: SettingsPaymentProcessorComponent },
-  { path: 'payment-gateway', component: SettingsPaymentGatewayComponent },
-  { path: 'lead-source', component: LeadSourceComponent }
+    { path: 'chargeback-parameters', component: SettingsCargebackParametersComponent },
+    { path: 'industries', component: SettingsIndustriesComponent },
+    { path: 'reason-codes', component: SettingsReasonCodesComponent },
+    { path: 'crm', component: SettingsCrmComponent },
+    { path: 'payment-processor', component: SettingsPaymentProcessorComponent },
+    { path: 'payment-gateway', component: SettingsPaymentGatewayComponent },
+    { path: 'lead-source', component: LeadSourceComponent }
 ];
 
 const appRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: '', component: DashboardComponent },
-  { path: 'widget', component: WidgetPageComponent },
-  { path: 'widget/report', component: ReportWidgetComponent },
-  { path: 'mid-health-report', component: MidHealthReportComponent },
-  { path: 'alerts', component: AlertsComponent },
-  { path: 'alerts/alert', component: AlertComponent },
-  { path: 'alerts/alert-resolve', component: AlertResolveComponent },
-  { path: 'alerts/alert-duplicate', component: AlertDuplicateComponent },
-  { path: 'alerts/alert-descriptor', component: AlertDescriptorComponent },
-  { path: 'chargeback-error', component: ChargebackErrorComponent },
-  { path: 'chargeback-summary', component: ChargebackSummaryComponent },
-  { path: 'chargeback-dispute', component: ChargebackDisputeComponent },
-  { path: 'chargeback', component: ChargebackComponent },
-  { path: 'onboarding', component: OnboardingComponent, children: innerOnboarding },
-  { path: 'mid-account', component: MidAccountComponent },
-  { path: 'mid-account-error', component: MidAccountErrorComponent },
-  { path: 'new-mid-account', component: NewMidAccountComponent },
-  { path: 'company', component: CompanyComponent, children: innerCompany },
-  { path: 'merchant', component: MerchantComponent, children: innerMerchant },
-  { path: 'user', component: UserComponent, children: userTabs },
-  {
-      path: 'client/:id',
-      component: UserComponent,
-      children: userTabs,
-      resolve: {user: ClientUserResolver},
-      data: {
-          breadcrumbs: {
-              topLink: '/users/users-clients',
-              topTitle: 'Users',
-              title: ' / Client Users'
-          },
-          userType: UserType.CLIENT
-      }
-  },
-  {
-      path: 'partner/:id',
-      component: UserComponent,
-      children: userTabs,
-      resolve: {user: PartnerUserResolver},
-      data: {
-          breadcrumbs: {
-              topLink: '/users/users-partners',
-              topTitle: 'Users',
-              title: ' / Partner Users'
-          },
-          userType: UserType.PARTNER
-      }
-  },
-  { path: 'new-user', component: NewUserComponent, canDeactivate: [CanDeactivateGuard] },
-  { path: 'users/user-notification', component: UserNotificationComponent },
-  { path: 'users/new-user-notification', component: NewUserNotificationComponent },
-  { path: 'billing-client', component: BillingClientComponent, children: billingTabs },
-  { path: 'invoices', component: InvoicesComponent },
-  { path: 'invoice', component: InvoiceComponent, children: invoiceTabs },
-  { path: 'cover-letters', component: CoverLettersComponent },
-  { path: 'cover-letter', component: CoverLetterComponent },
-  { path: 'new-cover-letter', component: NewCoverLetterComponent },
-  { path: 'tickets', component: TicketsComponent },
-  { path: 'new-ticket', component: NewTicketComponent },
-  { path: 'ticket', component: TicketComponent },
-  { path: 'client-ticket', component: ClientTicketComponent },
-  { path: 'new-client-ticket', component: NewClientTicketComponent },
-  { path: 'settings', component: SettingsComponent, children: innerSettings },
-  { path: 'settings/processor', component: ProcessorComponent, children: processorTabs },
-  { path: 'settings/new-processor', component: NewProcessorComponent, children: newProcessorTabs },
-  { path: 'settings/inner-payment-gateway', component: PaymentGatewayComponent },
-  { path: 'settings/new-payment-gateway', component: NewPaymentGatewayComponent },
-  { path: 'settings/new-reason-codes', component: NewReasonCodesComponent },
-  { path: 'settings/new-settings-crm', component: NewSettingsCrmComponent },
-  {
-      path: 'profile/:id',
-      component: ProfileComponent,
-      children: innerProfile,
-      resolve: {profile: ProfileResolver},
-      data: {
-          breadcrumbs: {
-              topLink: '/users/gurus',
-              topTitle: 'Users',
-              title: ' / Guru'
-          }
-      }
-  },
-  { path: 'onboarding/merchants/merchant', component: OnboardingMerchantComponent, children: innerOnboardingMerchantTabs },
-  { path: 'onboarding/merchants/new-merchant', component: NewOnboardingMerchantComponent, children: newOnboardingMerchantTabs },
-  { path: 'product', component: ProductComponent },
-  { path: 'onboarding/products/product', component: OnboardingProductInnerComponent },
-  { path: 'onboarding/products/new-product', component: NewOnboardingProductComponent },
-  //load partner route
-  //{ path: 'partners', loadChildren: 'app/pages/partners/partners.module#PartnersModule' },
+    { path: 'login', component: LoginComponent },
+    { path: '', component: DashboardComponent },
+    { path: 'widget', component: WidgetPageComponent },
+    { path: 'widget/report', component: ReportWidgetComponent },
+    { path: 'mid-health-report', component: MidHealthReportComponent },
+    { path: 'alerts', component: AlertsComponent },
+    { path: 'alerts/alert', component: AlertComponent },
+    { path: 'alerts/alert-resolve', component: AlertResolveComponent },
+    { path: 'alerts/alert-duplicate', component: AlertDuplicateComponent },
+    { path: 'alerts/alert-descriptor', component: AlertDescriptorComponent },
+    { path: 'chargebacks', component: ChargebacksComponent },
+    { path: 'chargeback-error', component: ChargebackErrorComponent },
+    { path: 'chargeback-summary', component: ChargebackSummaryComponent },
+    { path: 'chargeback-dispute', component: ChargebackDisputeComponent },
+    { path: 'chargeback', component: ChargebackComponent },
+    { path: 'clients', component: ClientsComponent },
+    { path: 'onboarding', component: OnboardingComponent, children: innerOnboarding },
+    { path: 'mid-account', component: MidAccountComponent },
+    { path: 'mid-account-error', component: MidAccountErrorComponent },
+    { path: 'new-mid-account', component: NewMidAccountComponent },
+    { path: 'company', component: CompanyComponent, children: innerCompany },
+    { path: 'merchant', component: MerchantComponent, children: innerMerchant },
+    { path: 'users', component: UsersComponent, children: usersTabs },
+    { path: 'user', component: UserComponent, children: userTabs },
+    {
+        path: 'client/:id',
+        component: UserComponent,
+        children: userTabs,
+        resolve: {user: ClientUserResolver},
+        data: {
+            breadcrumbs: {
+                topLink: '/users/users-clients',
+                topTitle: 'Users',
+                title: ' / Client Users'
+            },
+            userType: UserType.CLIENT
+        }
+    },
+    {
+        path: 'partner/:id',
+        component: UserComponent,
+        children: userTabs,
+        resolve: {user: PartnerUserResolver},
+        data: {
+            breadcrumbs: {
+                topLink: '/users/users-partners',
+                topTitle: 'Users',
+                title: ' / Partner Users'
+            },
+            userType: UserType.PARTNER
+        }
+    },
+    { path: 'new-user', component: NewUserComponent, canDeactivate: [CanDeactivateGuard] },
+    { path: 'users/user-notification', component: UserNotificationComponent },
+    { path: 'users/new-user-notification', component: NewUserNotificationComponent },
+    { path: 'activity', component: ActivityComponent },
+    { path: 'billing', component: BillingComponent },
+    { path: 'billing-client', component: BillingClientComponent, children: billingTabs },
+    { path: 'invoices', component: InvoicesComponent },
+    { path: 'invoice', component: InvoiceComponent, children: invoiceTabs },
+    { path: 'cover-letters', component: CoverLettersComponent },
+    { path: 'cover-letter', component: CoverLetterComponent },
+    { path: 'new-cover-letter', component: NewCoverLetterComponent },
+    { path: 'tickets', component: TicketsComponent },
+    { path: 'new-ticket', component: NewTicketComponent },
+    { path: 'ticket', component: TicketComponent },
+    { path: 'client-ticket', component: ClientTicketComponent },
+    { path: 'new-client-ticket', component: NewClientTicketComponent },
+    { path: 'settings', component: SettingsComponent, children: innerSettings },
+    { path: 'settings/processor', component: ProcessorComponent, children: processorTabs },
+    { path: 'settings/new-processor', component: NewProcessorComponent, children: newProcessorTabs },
+    { path: 'settings/inner-payment-gateway', component: PaymentGatewayComponent },
+    { path: 'settings/new-payment-gateway', component: NewPaymentGatewayComponent },
+    { path: 'settings/new-reason-codes', component: NewReasonCodesComponent },
+    { path: 'settings/new-settings-crm', component: NewSettingsCrmComponent },
+    {
+        path: 'profile/:id',
+        component: ProfileComponent,
+        children: innerProfile,
+        resolve: {profile: ProfileResolver},
+        data: {
+            breadcrumbs: {
+                topLink: '/users/gurus',
+                topTitle: 'Users',
+                title: ' / Guru'
+            }
+        }
+    },
+    { path: 'onboarding/merchants/merchant', component: OnboardingMerchantComponent, children: innerOnboardingMerchantTabs },
+    { path: 'onboarding/merchants/new-merchant', component: NewOnboardingMerchantComponent, children: newOnboardingMerchantTabs },
+    { path: 'product', component: ProductComponent },
+    { path: 'onboarding/products/product', component: OnboardingProductInnerComponent },
+    { path: 'onboarding/products/new-product', component: NewOnboardingProductComponent },
+    //load partner route
+    //{ path: 'partners', loadChildren: 'app/pages/partners/partners.module#PartnersModule' },
 ];
 
-
-
-
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    HttpClientModule, AngularSvgIconModule,
-    RouterModule.forRoot(appRoutes),
-    //BrowserModule,
-    NoopAnimationsModule,
-    CdkTableModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CfDatepickerModule,
-    SortablejsModule,
-    TextMaskModule,
-    MAT_MODULES,
-    NgxDatatableModule,
-    PerfectScrollbarModule,
-    HttpModule,
-    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }),
-    //SharedModule,
-    PartnersModule
-  ],
-  exports: [CfDatepickerModule, MAT_MODULES,  CF_COMPONENTS, CF_DIRECTIVES, StatusComponent, RouterModule, SharedModule,
-  AlertsComponent,
+    declarations: [
+        DashboardComponent,
+        AlertsComponent,
+        ChargebacksComponent,
+        ClientsComponent,
+        UsersComponent,
+        ActivityComponent,
+        BillingComponent,
+        CoverLettersComponent,
+        TicketsComponent,
+        SettingsComponent,
+        ProfileComponent,
+        CF_COMPONENTS,
+        CF_DIRECTIVES,
+        LoginComponent,
+        ProfileDetailsComponent,
+        ProfileActivityComponent,
+        CompanyComponent,
+        CompanyDetailsComponent,
+        CompanyBillingComponent,
+        CompanyCrmComponent,
+        CompanyMerchantsComponent,
+        CompanyProductsComponent,
+        CompanyUsersComponent,
+        CompanyGurusComponent,
+        CompanyActivityComponent,
+        MerchantComponent,
+        MerchantDetailsComponent,
+        MerchantProductsComponent,
+        MerchantMidAccountsComponent,
+        MerchantActivityComponent,
+        ChargebackComponent,
+        SettingsCargebackParametersComponent,
+        SettingsIndustriesComponent,
+        SettingsReasonCodesComponent,
+        SettingsCrmComponent,
+        SettingsPaymentProcessorComponent,
+        SettingsPaymentGatewayComponent,
+        OnboardingComponent,
+        OnboardingDetailsComponent,
+        OnboardingBillingComponent,
+        OnboardingCrmComponent,
+        OnboardingMerchantsComponent,
+        OnboardingProductsComponent,
+        OnboardingUsersComponent,
+        OnboardingGurusComponent,
+        DialogListSearchPipe,
+        OnboardingMerchantComponent,
+        OnboardingMerchantDetailsComponent,
+        OnboardingMerchantProductsComponent,
+        OnboardingMerchantMidAccountsComponent,
+        ProductComponent,
+        CheckListItemsComponent,
+        MidAccountComponent,
+        NewMidAccountComponent,
+        OnboardingProductInnerComponent,
+        NewOnboardingProductComponent,
+        UploadDialogComponent,
+        HeaderAnimationDirective,
+        NewOnboardingMerchantComponent,
+        NewOnboardingMerchantDetailsComponent,
+        NewOnboardingMerchantProductsComponent,
+        NewOnboardingMerchantMidAccountsComponent,
+        TablePositionDirective,
+        AutosizeDirective,
+        CompanyDetailsPageComponent,
+        BillingFormComponent,
+        TableSettingsDialogComponent,
+        CrmFormComponent,
+        MerchantDetailsFormComponent,
+        TableComponent,
+        AlertResolveComponent,
+        AlertDuplicateComponent,
+        AlertDescriptorComponent,
+        CvvFieldComponent,
+        UserTitleComponent,
+        NewUserComponent,
+        UserComponent,
+        AssignCompanyComponent,
+        UserDetailsComponent,
+        UserActivityComponent,
+        MidAccountErrorComponent,
+        StatusComponent,
+        DateRangeComponent,
+        DateRangeFieldComponent,
+        ConfirmDialogComponent,
+        MiniWidgetComponent,
+        DashboardMenuComponent,
+        AddWidgetComponent,
+        NotificationsComponent,
+        ChargebackErrorComponent,
+        CoverLetterComponent,
+        NewCoverLetterComponent,
+        ChargebackSummaryComponent,
+        ChargebackDisputeComponent,
+        RadioListItemsComponent,
+        SaveDashboardComponent,
+        ManageDashboardComponent,
+        WidgetPageComponent,
+        NewNoteComponent,
+        NotFoughtDialogComponent,
+        NotesDialogComponent,
+        ProductTemplateComponent,
+        UserDialogComponent,
+        GurusComponent,
+        UsersClientsComponent,
+        UsersPartnersComponent,
+        BillingClientComponent,
+        BillingSummaryComponent,
+        BillingHistoryComponent,
+        BillingServicesComponent,
+        BillingMethodsComponent,
+        InvoicesComponent,
+        InvoiceComponent,
+        InvoiceSummaryComponent,
+        InvoicePaymentHistoryComponent,
+        InvoiceServiceComponent,
+        InvoicePaymentMethodsComponent,
+        NewTicketComponent,
+        AssignUserDialogComponent,
+        TicketComponent,
+        ClientTicketComponent,
+        NewClientTicketComponent,
+        CompanyReportsComponent,
+        RestrictionsComponent,
+        PriceQualifierDialogComponent,
+        ReasonCodesDialogComponent,
+        SingleTableComponent,
+        MidHealthReportComponent,
+        ProcessorComponent,
+        ProcessorDetailsComponent,
+        ProcessorDisputeInfoComponent,
+        ProcessorRiskRuleComponent,
+        AddFieldDialogComponent,
+        AddValuesDialogComponent,
+        NewProcessorComponent,
+        NewProcessorDetailsComponent,
+        NewProcessorDisputeInfoComponent,
+        NewProcessorRiskRuleComponent,
+        PaymentGatewayComponent,
+        NewPaymentGatewayComponent,
+        TextFieldDialogComponent,
+        LeadSourceComponent,
+        NewReasonCodesComponent,
+        CardCodesDialogComponent,
+        SelectDialogComponent,
+        NewSettingsCrmComponent,
+        UserNotificationsComponent,
+        NewUserNotificationComponent,
+        UserNotificationComponent,
+        AlertComponent,
+        RestrictionsTemplateComponent,
+        OnboardingRestrictionsComponent,
+        ReportWidgetComponent,
+        ConfirmationDialogComponent,
+        MessageDialogComponent,
 
+    ],
+    imports: [
+        HttpClientModule, AngularSvgIconModule,
+        RouterModule.forChild(appRoutes),
+        //BrowserAnimationsModule,
+        CdkTableModule,
+        FormsModule,
+        ReactiveFormsModule,
+        CfDatepickerModule,
+        SortablejsModule,
+        TextMaskModule,
+        MAT_MODULES,
+        NgxDatatableModule,
+        PerfectScrollbarModule,
+        HttpModule,
+
+    ],
+    exports: [CfDatepickerModule, MAT_MODULES,  CF_COMPONENTS, CF_DIRECTIVES, StatusComponent, RouterModule, DashboardComponent,
+        AlertsComponent,
+        ChargebacksComponent,
+        ClientsComponent,
+        UsersComponent,
+        ActivityComponent,
+        BillingComponent,
         CoverLettersComponent,
         TicketsComponent,
         SettingsComponent,
@@ -599,54 +756,8 @@ const appRoutes: Routes = [
         ReportWidgetComponent,
         ConfirmationDialogComponent,
         MessageDialogComponent,],
-  providers: [
-    AlertsService,
-    AlertReasonService,
-    AlertDescriptorService,
-    DialogService,
-    CanDeactivateGuard,
-    ClientUserResolver,
-    CompanyService,
-    PartnerUserResolver,
-    ProfileResolver,
-    RoleService,
-    UserService,
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    CheckListItemsComponent,
-    UploadDialogComponent,
-    TableSettingsDialogComponent,
-    AssignCompanyComponent,
-    DateRangeComponent,
-    ConfirmDialogComponent,
-    AddWidgetComponent,
-    RadioListItemsComponent,
-    SaveDashboardComponent,
-    ManageDashboardComponent,
-    NewNoteComponent,
-    NotFoughtDialogComponent,
-    NotesDialogComponent,
-    UserDialogComponent,
-    AssignUserDialogComponent,
-    PriceQualifierDialogComponent,
-    ReasonCodesDialogComponent,
-    AddFieldDialogComponent,
-    AddValuesDialogComponent,
-    TextFieldDialogComponent,
-    CardCodesDialogComponent,
-    SelectDialogComponent,
-    ConfirmationDialogComponent,
-    MessageDialogComponent
-  ]
+
+
 })
-export class AppModule {
-  constructor(overlayContainer: OverlayContainer) {
-    overlayContainer.getContainerElement().classList.add('FPR360-theme');
-  }
+export class SharedModule {
 }
