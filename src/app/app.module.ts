@@ -14,7 +14,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { HttpModule } from '@angular/http'; //service
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-
+import { PartnersModule } from './pages/partners/partners.module';  //rki_add
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {};
 import {
@@ -643,7 +643,8 @@ const appRoutes: Routes = [
     MAT_MODULES,
     NgxDatatableModule,
     PerfectScrollbarModule,
-     HttpModule 
+    HttpModule,
+    PartnersModule //rki_add 
   ],
   exports: [CfDatepickerModule, MAT_MODULES],
   providers: [
